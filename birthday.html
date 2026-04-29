@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 🎂</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 🎂 CENTER TEXT */
+.container {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+    animation: glow 2s infinite alternate;
+}
+
+p {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* ✨ GLOW ANIMATION */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff4081;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 40px #ff1744;
+    }
+}
+
+/* 🎈 BALLOONS */
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 60px;
+    height: 80px;
+    border-radius: 50%;
+    animation: float 8s linear infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: white;
+    top: 80px;
+    left: 50%;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+/* ✨ SPARKLES */
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎉 Happy Birthday! 🎂</h1>
+    <p>Wishing you joy, love, and lots of cake! 💖</p>
+</div>
+
+<!-- 🎵 MUSIC -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mp3">
+</audio>
+
+<script>
+/* 🎈 CREATE BALLOONS */
+const colors = ["#ff4d6d", "#ff9a9e", "#ffd166", "#06d6a0", "#4cc9f0"];
+
+for (let i = 0; i < 25; i++) {
+    const b = document.createElement("div");
+    b.className = "balloon";
+    b.style.left = Math.random() * 100 + "vw";
+    b.style.background = colors[Math.floor(Math.random() * colors.length)];
+    b.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(b);
+}
+
+/* ✨ CREATE SPARKLES */
+for (let i = 0; i < 80; i++) {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.top = Math.random() * 100 + "vh";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDelay = Math.random() * 2 + "s";
+    document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
